@@ -14,7 +14,22 @@ Hint: For subsets([1, 2, 3]), there are two kinds of subsets:
      subset that is the same, except it also does contain 3.
 ***********************************************************************/
 
-// your code here
+function subsets(nums) {
+  
+  if (nums.length === 0) {
+    return [[]];
+  }
+
+  
+  const prevSubsets = subsets(nums.slice(0, -1));
+
+  
+  const lastElement = nums[nums.length - 1];
+  const subsetsWithLast = prevSubsets.map(subset => [...subset, lastElement]);
+
+  
+  return [...prevSubsets, ...subsetsWithLast];
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

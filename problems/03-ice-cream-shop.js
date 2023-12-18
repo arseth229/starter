@@ -13,7 +13,20 @@ iceCreamShop([], 'honey lavender'); // false
 ***********************************************************************/
 
 
-// your code here
+function iceCreamShop(flavors, favorite) {
+  let offer = []
+  if (flavors[0] === favorite) {
+    return true;
+  }
+
+  if (flavors.length === 0) {
+    return false;
+  }
+
+  if (flavors[0] !== favorite) {
+    return iceCreamShop(flavors = flavors.slice(1), favorite);
+  }
+}
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/

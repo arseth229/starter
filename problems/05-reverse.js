@@ -12,7 +12,18 @@ reverse("id"); // "di"
 reverse(""); // ""
 ***********************************************************************/
 
-// your code here
+function reverse(string) {
+  let back = string.length - 1;
+  if (string.length === 0) {
+    return "";
+  }
+  if (string.length === 1) {
+    return string;
+  }
+  if (string.length > 1) {
+    return string[back] + reverse(string.slice(0, back));
+  }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

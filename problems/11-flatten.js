@@ -8,9 +8,25 @@ Examples:
 flatten([]); // []
 flatten([1, 2]); // [1, 2]
 flatten([1, [2, [3]]]); // [1, 2, 3]
+// 11-flatten.js
+[1, [2, [3]]]
+
+result.
 ***********************************************************************/
 
-// your code here
+function flatten(arr) {
+  if (arr.length === 0) {
+    return arr;
+  }
+
+  if (!Array.isArray(arr)) {
+    return [arr];
+  }
+
+  return arr.reduce((result, element) => {
+    return result.concat(flatten(element));
+  }, []);
+}
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

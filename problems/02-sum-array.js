@@ -10,7 +10,14 @@ sumArray([0, 1, -3]); //  -2
 sumArray([1, 2, 3, 4, 5]); // 15
 ***********************************************************************/
 
-// your code here
+function sumArray(arr, i = 0) {
+  if (i >= arr.length) {
+    return 0;
+  }
+  if (i < arr.length) {
+    return arr[0] + sumArray(arr = arr.slice(1), i = 0);
+  };
+}  
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

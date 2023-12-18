@@ -63,9 +63,27 @@ The call above should return the tree below:
 
 ***********************************************************************/
 
-const makeTree = (categories, parent) => {
-  // your code here
-};
+const makeTree = (categories, parent = null) => {
+  const tree = {};
+
+  categories.forEach(category => {
+    if (category.parent === parent) {
+      const children = makeTree(categories, category.id);
+      if (Object.keys(children).length > 0) {
+        tree[category.id] = children;
+      } else {
+        tree[category.id] = {};
+      }
+    }
+  });
+
+  return tree;
+   
+  }
+   
+
+    
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

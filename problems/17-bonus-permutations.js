@@ -12,7 +12,32 @@ permutations([1, 2, 3]) // [[1, 2, 3], [1, 3, 2],
                         // [3, 1, 2], [3, 2, 1]]
 ***********************************************************************/
 
-// your code here
+function permutations (array) {
+  let result = [];
+  let factorial = () => {
+    let fact = array.length;
+    for (let i = array.length - 1; i > 0; i--) {
+      fact = fact * i;
+    }
+    return fact;
+  }
+
+  if (result.length >= factorial(array)) {
+    return result;
+  }
+
+  if (result.length < factorial(array)) {
+    result.push(array);
+    for (let n = 0; n < array.length; n++) {
+      let termOut = array[n]
+      let indexOfTerm = array.indexOf(termOut)
+      array.uppend(termOut).splice(indexOfTerm, 1);
+    }
+
+  }
+}
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
